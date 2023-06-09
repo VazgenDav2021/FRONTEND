@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+      }
+
+      a {
+        text-decoration: none;
+      }
+
+      .navbar {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-between;
+        background-color: darkcyan;
+        padding: 10px 15px;
+      }
+
+      .navbar__logo {
+        font-size: 30px;
+        font-weight: bold;
+      }
+
+      .navbar__menu {
+        display: flex;
+        list-style: none;
+        padding: 0;
+      }
+
+      .navbar__menu li {
+        padding: 10px 15px;
+      }
+
+      .navbar__menu li:hover {
+        background-color: red;
+        border-radius: 20px;
+      }
+
+      /* При большом экране пусть буегер будет невидемым */
+      .navbar__togleBtn {
+        display: none;
+        position: absolute;
+        right: 30px;
+      }
+
+      /* При большом экране пусть полоски будут невидемоми */
+      .navbar__togleBtn span {
+        width: 20px;
+        height: 1px;
+        background-color: red;
+        display: none;
+        flex-direction: column;
+        gap: 5px;
+      }
+
+      /* Пусть заработают эти стили если у пользователя размер устройства меньше 800px */
+      @media screen and (max-width: 800px) {
+        .navbar {
+          flex-direction: column;
+          align-items: flex-start;
+          padding: 10px 20px;
+        }
+
+        .navbar__togleBtn {
+          display: flex;
+          flex-direction: column;
+          gap: 5px;
+          top: 20px;
+        }
+        .navbar__togleBtn span {
+          display: flex;
+        }
+
+        .navbar__menu {
+          display: none;
+          flex-direction: column;
+          align-items: center;
+          width: 100%;
+        }
+
+        .navbar__menu li {
+          width: 100%;
+          text-align: center;
+        }
+
+        /* к меню добавь класс active чтобы оно открылось */
+        .navbar__menu.active {
+          display: flex;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="navbar">
+      <div class="navbar__logo">
+        <a href="">LOGO</a>
+      </div>
+
+      <ul class="navbar__menu">
+        <li><a href="">Home</a></li>
+        <li><a href="">About Us</a></li>
+        <li><a href="">Contact Us</a></li>
+        <li><a href="">FAQ</a></li>
+        <li><a href="">Booking</a></li>
+      </ul>
+
+      <a href="#" class="navbar__togleBtn">
+        <span></span><span></span><span></span>
+      </a>
+    </nav>
+
+    <script>
+      const toggleBtn = document.querySelector(".navbar__togleBtn");
+      const menu = document.querySelector(".navbar__menu");
+
+      toggleBtn.addEventListener("click", () => {
+        menu.classList.toggle("active");
+      });
+    </script>
+  </body>
+</html>
