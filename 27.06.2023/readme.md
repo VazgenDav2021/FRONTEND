@@ -2,7 +2,7 @@
 .HTTP что такое
 .HTTP Status
 .HTTP методы
-.HTTP VS HTTPS
+.HTTP VS HTTPS(secure)
 .https://softuni.org/dev-concepts/everything-you-need-to-know-about-http-protocol/
 .DOM main listeneres (domcontentLoaded) тд
 .InsertAdjacentHTML, insertAdjacentText, ...
