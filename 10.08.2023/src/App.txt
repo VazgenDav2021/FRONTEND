@@ -1,0 +1,36 @@
+import React, { useState } from 'react'
+
+const App = () => {
+  const [state, setState] = useState(0);
+
+  // функция которая вызвывает setState для изменения состояния
+  const increment = () => setState(state + 1);
+  const decremnt = () => setState(state - 1);
+
+
+  return (
+    <div>
+      <button onClick={increment}>Click for incrmeent</button>
+      {state}
+      <button onClick={decremnt}>Click for decremnt</button>
+      <ChildComponent value={state} />
+      <ChildComponentThatDoesNotHavProp/>
+    </div>
+  )
+}
+
+// данный компонент пересуется столько раз сколько раз будет изменятся занчение пропа value 
+function ChildComponent({ value }) {
+  return <h1>
+    Отрисуюсь столько сколько раз изменятся значение: {value}
+  </h1>
+}
+
+function ChildComponentThatDoesNotHavProp(){
+  console.log("Я перересовался!!!!!!");
+  return <h1>
+    Я буду отрисовыватся столько сколько раз будет отрисовыватся мой родитель
+  </h1>
+}
+
+export default App

@@ -1,0 +1,40 @@
+import React from "react";
+
+const Card = ({ backgroundColor, value }) => {
+  const cardStyle = {
+    backgroundColor,
+    padding: "10px",
+    margin: "10px",
+    borderRadius: "10px",
+    color: "white",
+  };
+
+  return (
+    <div style={cardStyle}>
+      <span>{value}</span>
+    </div>
+  );
+};
+
+const ratings = [
+  { value: 1, background: "red" },
+  { value: 2, background: "orange" },
+  { value: 3, background: "black" },
+  { value: 4, background: "green" },
+];
+
+const App = () => {
+  return (
+    <div>
+      {ratings.map((rating, index) => (
+        <Card
+          key={index}
+          backgroundColor={rating.background}
+          value={rating.value}
+        />
+      ))}
+    </div>
+  );
+};
+
+export default App;
