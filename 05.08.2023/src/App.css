@@ -1,0 +1,14 @@
+li{
+  list-style-type: none;
+}
+
+.App{
+  display: flex;
+  gap: 40px;
+}
+
+.eachUser{
+  padding: 20px;
+  border: 1px solid;
+  width: 200px;
+}
