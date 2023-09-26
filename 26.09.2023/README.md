@@ -7,3 +7,12 @@ STYLED COMPONENTS
 
 
 
+
+https://styled-components.com/
+youtube.com/watch?v=iP_HqoCuRI0&t=386s
+https://www.youtube.com/watch?v=I2UBjN5ER4s&t=2435s
+https://airtable.com/apprdK6RSuHRwWXO9/shr7Lo4UqIWKhQzTR?prefill_lessons=recUTbZ4yfw9NUHa7
+
+
+
+https://github.com/kerlon13/style_components
