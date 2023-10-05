@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { getPosts } from './redux/action/actions'
+import { getCurrentPost, getPosts } from './redux/action/actions'
 import ClipLoader from "react-spinners/ClipLoader";
 import './App.css';
 import { useDispatch, useSelector } from 'react-redux';
@@ -28,12 +28,32 @@ const App = () => {
   }
 
   return (
-    <>
-      {posts.map(({ title, id }) => {
-        return <li key={id}>{title}</li>
-      })}
-    </>
+    <div style={{ display: 'flex', justifyContent: "space-between" }}>
+      <div>
+        {posts?.map(({ title, id }) => {
+          return <Post key={id} {...{ title, id }} />
+        })}
+      </div>
+
+      <CurrentPost />
+    </div>
   )
+}
+
+function Post({ title, id }) {
+  const dispatch = useDispatch()
+
+  const handleSelectPost = () => {
+    dispatch(getCurrentPost(id))
+  }
+
+  return <li onClick={handleSelectPost}>{title}</li>
+}
+
+function CurrentPost() {
+  const { currentPost } = useSelector(state => state)
+  console.log({ currentPost });
+  return <p>Current Post: {currentPost.title}</p>
 }
 
 export default App

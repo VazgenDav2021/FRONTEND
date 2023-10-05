@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { ERROR_FETCH, FETCH_POSTS, SUCCESS_FETCH } from './types';
+import { ERROR_FETCH, FETCH_POSTS, SUCCESS_FETCH, SUCCESS_FETCH_PER_ONE } from './types';
 
 export const getPosts = () => {
     // во время асинхрноого запроса нам возращается колбэк функция с dispatch
@@ -15,5 +15,14 @@ export const getPosts = () => {
             // если у нас будет проблема в запросе то отправляем экшн для того чтобы флажок для отраборжения ошибок стал активным
             dispatch({ type: ERROR_FETCH })
         }
+    }
+}
+
+export const getCurrentPost = (id) => {
+    return async (dispatch) => {
+
+        const response = await axios.get(`https://jsonplaceholder.typicode.com/posts/${id}`);
+            dispatch({ type: SUCCESS_FETCH_PER_ONE, payload: response });
+       
     }
 }
